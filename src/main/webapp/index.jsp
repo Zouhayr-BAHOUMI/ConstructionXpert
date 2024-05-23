@@ -56,7 +56,7 @@
 
                 <div class="d-flex justify-content-around ">
                       <div class="card-body">
-                        <h5 class="card-title mt-2">P<%=projet.getNom_projet() %></h5>
+                        <h5 class="card-title mt-2"><%=projet.getNom_projet() %></h5>
                         <p class="card-text mt-2 "><%=projet.getDescription() %></p>
                           <ul class="list-group list-group-flush">
                               <li class="list-group-item"><%=projet.getDate_debut() %></li>
@@ -70,7 +70,7 @@
                   <div class="card-body d-flex justify-content-around ">
                       <a href="modifierProjet.jsp?id=<%= projet.getId_projet()%>" class="btn btn-success">Edit</a>
                       <a href="supprimerProjet?id=<%= projet.getId_projet()%>" class="btn btn-outline-success ">Delete</a>
-                      <a href="Register.jsp" class="btn btn-info text-white">Taches</a>
+                      <a href="taches/index.jsp?id=<%= projet.getId_projet()%>" class="btn btn-info text-white">Taches</a>
                   </div>
 
               </div>
