@@ -80,8 +80,8 @@
                                 <td><%=tache.getStatus()%></td>
                                 <td>
                                     <a href="modifierTache.jsp?idTache=<%=tache.getId_tache()%>" class="btn btn-dark">Edit</a>
-                                    <a href="#" class="btn btn-danger">Delete</a>
-                                    <a href="#" class="btn btn-dark">show ressources</a>
+                                    <a href="../supprimerTache?idTache=<%=tache.getId_tache()%>" class="btn btn-danger">Delete</a>
+                                    <a href="../ressources/index.jsp?idTache=<%=tache.getId_tache()%>" class="btn btn-dark">show ressources</a>
                                 </td>
                             </tr>
                         </table>

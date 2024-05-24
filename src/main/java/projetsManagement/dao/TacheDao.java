@@ -125,4 +125,23 @@ public class TacheDao {
 
         return isUpdated;
     }
+
+    public boolean supprimerTache(int id){
+        boolean isDeleted = false;
+
+        try {
+            PreparedStatement prstmt = connection.prepareStatement("DELETE from Tache where id_tache=?");
+            prstmt.setInt(1,id);
+
+            int i = prstmt.executeUpdate();
+
+            if (i == 1){
+                isDeleted = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return isDeleted;
+    }
 }

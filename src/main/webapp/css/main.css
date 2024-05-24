@@ -14,4 +14,29 @@ body{
     border-radius: 1.2rem;
 }
 
+/* Add some spacing between the brand and nav links */
+.navbar-brand {
+    margin-right: 2rem;
+}
+
+/* Style the nav links */
+.nav-link {
+    color: #ffffff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #ffc107;
+}
+
+/* Style the brand */
+.navbar-brand {
+    color: #ffc107;
+    font-size: 1.2rem;
+}
+
+.dollar-sign {
+    color: #ffd700;
+}
 
