@@ -3,6 +3,8 @@
 <%@ page import="projetsManagement.model.Projet" %>
 <%@ page import="projetsManagement.dao.TacheDao" %>
 <%@ page import="projetsManagement.model.Tache" %>
+<%@ page import="projetsManagement.dao.RessourceDao" %>
+<%@ page import="projetsManagement.model.Ressource" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -54,6 +56,14 @@
                     <h3 class="text-white"> Ressources</h3>
                 </div>
 
+                <%
+
+                    int id = Integer.parseInt(request.getParameter("idTache"));
+                    RessourceDao ressourcedao = new RessourceDao();
+                    List<Ressource> listRessources = ressourcedao.afficherRessourceByTacheId(id);
+                    System.out.println("Number of projects: " + listRessources.size());
+                    for (Ressource ressource : listRessources){
+                %>
 
                 <div class="card-body">
                     <table class="table">
@@ -67,11 +77,11 @@
                         </tr>
 
                         <tr>
-                            <td>hi</td>
-                            <td>hi</td>
-                            <td>hi</td>
-                            <td>hi</td>
-                            <td>hi</td>
+                            <td><%=ressource.getNom_ressource() %></td>
+                            <td><%=ressource.getType_ressource() %></td>
+                            <td><%=ressource.getQuantite() %></td>
+                            <td><%=ressource.getNom_fournisseur() %></td>
+                            <td><%=ressource.getContact_fournisseur()%></td>
                             <td>
                                 <a href="" class="btn btn-dark">Edit</a>
                                 <a href="" class="btn btn-danger">Delete</a>
@@ -79,6 +89,7 @@
                         </tr>
                     </table>
                 </div>
+                <% } %>
             </div>
         </div>
     </div>

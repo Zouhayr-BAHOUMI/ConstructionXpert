@@ -6,7 +6,10 @@ import projetsManagement.model.Tache;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RessourceDao {
 
@@ -44,4 +47,37 @@ public class RessourceDao {
 
         return  isAdded;
     }
+
+    public List<Ressource> afficherRessourceByTacheId(int id) {
+
+        List<Ressource> ressources = new ArrayList<Ressource>();
+        try {
+            PreparedStatement prstmt = connection.prepareStatement("SELECT * FROM Ressource WHERE id_tache = ?");
+            prstmt.setInt(1,id);
+            ResultSet res = prstmt.executeQuery();
+
+            while (res.next()){
+                Ressource ressource = new Ressource();
+
+                ressource.setId_ressource(res.getInt("id_ressource"));
+                ressource.setNom_ressource(res.getString("nom_ressource"));
+                ressource.setType_ressource(res.getString("type_ressource"));
+                ressource.setQuantite(res.getFloat("quantite"));
+                ressource.setNom_fournisseur(res.getString("nom_fournisseur"));
+                ressource.setContact_fournisseur(res.getString("contact_fournisseur"));
+                ressource.setAdresse(res.getString("adresse"));
+                ressource.setId_tache(res.getInt("id_tache"));
+
+                ressources.add(ressource);
+            }
+
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+
+        return ressources;
+    }
+
 }
