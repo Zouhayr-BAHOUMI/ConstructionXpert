@@ -26,14 +26,23 @@
 </head>
 <body>
 
-<nav class="navbar navbar-light bg-light mb-5 mt-4">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a href="" style=" color:green; text-decoration:none; " > <h3><i class="fa-solid fa-helmet-safety"></i>ConstructionXpert</h3> </a>
-
-
-        <div class="col-md-3 mr-6" >
-            <a href="login.jsp" class="btn btn-success">login</a>
-            <a href="Register.jsp" class="btn btn-primary text-white">register</a>
+        <a class="navbar-brand" href="#" style="color: #ffc107; font-weight: bold;">
+            <i class="fa-solid fa-helmet-safety"></i> ConstructionXpert
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="login.jsp">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Register.jsp">Register</a>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>

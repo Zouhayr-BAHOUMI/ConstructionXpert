@@ -58,6 +58,7 @@
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control" name="nomProjet" id="nomProjet" placeholder="nom projet" required>
                                         <label for="nomProjet" class="form-label">Nom de Projet</label>
+                                        <span id="error" style="color: red;"> </span>
                                     </div>
                                 </div>
 
@@ -65,6 +66,7 @@
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control" name="description" id="description" placeholder="Entrer description" required>
                                         <label for="description" class="form-label">Description</label>
+                                        <span id="errorDES" style="color: red;"> </span>
                                     </div>
                                 </div>
 
@@ -72,6 +74,7 @@
                                     <div class="form-floating mb-3">
                                         <input type="date" class="form-control" name="date_debut" id="date_debut"  required>
                                         <label for="date_debut" class="form-label">Date Debut</label>
+                                        <span id="errorD" style="color: red;"> </span>
                                     </div>
                                 </div>
 
@@ -79,12 +82,14 @@
                                     <div class="form-floating mb-3">
                                         <input type="date" class="form-control" name="date_fin" id="date_fin"  required>
                                         <label for="date_fin" class="form-label">Date Fin</label>
+                                        <span id="errorF" style="color: red;"> </span>
                                     </div>
                                 </div>
 
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">$</span>
                                     <input type="text" class="form-control" name="budget" id="budget" aria-label="Amount (to the nearest dollar)">
+                                    <span id="errorB" style="color: red;"> </span>
                                 </div>
 
                                 <div class="col-12">
@@ -102,6 +107,80 @@
 </section>
 
 
-<script src="js/main.js"></script>
+<script >
+
+    function validerNom() {
+    let projetNom = document.getElementById("nomProjet").value;
+    let error = document.getElementById("error");
+    if (projetNom === "") {
+        error.textContent = "Champ requis";
+        return false;
+    } else {
+        error.textContent = "";
+        return true;
+    }
+}
+
+function validerDescription() {
+    let description = document.getElementById("description").value;
+    let error = document.getElementById("errorDES");
+    if (description === "") {
+        error.textContent = "Champ requis";
+        return false;
+    } else {
+        error.textContent = "";
+        return true;
+    }
+}
+
+function validerDateDebut() {
+    let dateDebut = document.getElementById("date_debut").value;
+    let error = document.getElementById("errorD");
+    if (dateDebut === "") {
+        error.textContent = "Champ requis";
+        return false;
+    } else {
+        error.textContent = "";
+        return true;
+    }
+}
+
+function validerDateFin() {
+    let dateFin = document.getElementById("date_fin").value;
+    let dateDebut = document.getElementById("date_debut").value;
+    let error = document.getElementById("errorF");
+    if (dateFin === "") {
+        error.textContent = "Champ requis";
+        return false;
+    } else if (new Date(dateFin) <= new Date(dateDebut)) {
+        error.textContent = "Date fin doit être après date début";
+        return false;
+    } else {
+        error.textContent = "";
+        return true;
+    }
+}
+
+function validerBudget() {
+    let budget = document.getElementById("budget").value;
+    let error = document.getElementById("errorB");
+    if (budget === "" || isNaN(budget)) {
+        error.textContent = "Champ requis et doit être un nombre";
+        return false;
+    } else {
+        error.textContent = "";
+        return true;
+    }
+}
+
+    window.onload = function() {
+        document.getElementById("nomProjet").addEventListener("blur", validerNom);
+        document.getElementById("description").addEventListener("blur", validerDescription);
+        document.getElementById("date_debut").addEventListener("blur", validerDateDebut);
+        document.getElementById("date_fin").addEventListener("blur", validerDateFin);
+        document.getElementById("budget").addEventListener("blur", validerBudget);
+    };
+
+</script>
 </body>
 </html>

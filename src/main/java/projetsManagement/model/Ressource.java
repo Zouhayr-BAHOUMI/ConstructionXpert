@@ -20,6 +20,7 @@ public class Ressource {
     }
 
     public void setId_ressource(int id_ressource) {
+        System.out.println("Setting id_ressource: " + id_ressource);
         this.id_ressource = id_ressource;
     }
 
@@ -78,4 +79,6 @@ public class Ressource {
     public void setId_tache(int id_tache) {
         this.id_tache = id_tache;
     }
+
+
 }
