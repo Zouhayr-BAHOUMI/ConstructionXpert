@@ -33,10 +33,11 @@ public class AjouterTache extends HttpServlet {
         tache.setDate_fin(req.getParameter("date_fin"));
         tache.setStatus(req.getParameter("status"));
 
-        tache.setId_projet(Integer.parseInt(req.getParameter("id_projet")));
+        int id_projet = Integer.parseInt(req.getParameter("id_projet"));
+        tache.setId_projet(id_projet);
 
         if (tachedao.ajouterTache(tache)){
-            resp.sendRedirect(req.getContextPath() + "/taches/index.jsp");
+            resp.sendRedirect(req.getContextPath() + "/taches/index.jsp?id=" +id_projet);
         }
     }
 }

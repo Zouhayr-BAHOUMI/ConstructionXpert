@@ -28,7 +28,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="#" style="color: #ffc107; font-weight: bold;">
+        <a class="navbar-brand" href="index.jsp" style="color: #ffc107; font-weight: bold;">
             <i class="fa-solid fa-helmet-safety"></i> ConstructionXpert
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -74,8 +74,9 @@
                     </div>
                     <div class="d-flex justify-content-between">
                         <a href="modifierProjet.jsp?id=<%=projet.getId_projet()%>" class="btn btn-sm btn-success px-3">Edit</a>
-                        <a href="supprimerProjet?id=<%=projet.getId_projet()%>" class="btn btn-sm btn-outline-danger px-3">Delete</a>
+                        <a href="#" onclick="confirmDeletion(<%= projet.getId_projet() %>)"  class="btn btn-sm btn-outline-danger px-3">Delete</a>
                         <a href="taches/index.jsp?id=<%=projet.getId_projet()%>" class="btn btn-sm btn-info text-white px-3">Tasks</a>
+                        <a href="generatePdf?id=<%=projet.getId_projet()%>" class="btn btn-primary">Generate PDF</a>
                     </div>
                 </div>
             </div>
@@ -110,6 +111,13 @@
     <% } %>--%>
 
 
-  <script src="js/main.js"></script>
+  <script >
+      function confirmDeletion(projetId) {
+          var confirmation = confirm("Voulez-vous vraiment supprimer ce projet ?");
+          if (confirmation) {
+              window.location.href = "supprimerProjet?id=" + projetId;
+          }
+      }
+  </script>
 </body>
 </html>

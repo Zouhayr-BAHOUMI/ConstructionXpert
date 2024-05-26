@@ -95,7 +95,7 @@
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="#" style="color: #ffc107; font-weight: bold;">
+                <a class="navbar-brand" href="../index.jsp" style="color: #ffc107; font-weight: bold;">
                     <i class="fa-solid fa-helmet-safety"></i> ConstructionXpert
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -145,7 +145,7 @@
                                         </div>
                                         <div class="resource-actions">
                                             <a href="modifierRessource.jsp?idRes=<%=ressource.getId_ressource()%>" class="btn btn-dark btn-sm"><i class="fas fa-edit"></i></a>
-                                            <a href="" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
+                                            <a href="../supprimerRessource?idRes=<%=ressource.getId_ressource()%>" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
                                         </div>
                                     </div>
                                 </div>

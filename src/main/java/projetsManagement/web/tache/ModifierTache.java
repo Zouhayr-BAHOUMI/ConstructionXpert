@@ -33,9 +33,9 @@ public class ModifierTache extends HttpServlet {
 
         tache.setId_tache(Integer.parseInt(req.getParameter("id_tache")));
 
+
         if (tachedao.modifierTache(tache)){
-            String projetId = req.getParameter("id");
-            resp.sendRedirect(req.getContextPath() + "/taches/index.jsp?id=" + projetId);
+            resp.sendRedirect("index.jsp");
         }
     }
 }
